@@ -8,7 +8,7 @@ export default function Hero() {
 
   return (
 
-    <section id="hero" className="min-h-screen flex items-center relative overflow-hidden px-6">
+    <section id="hero" className="min-h-screen flex items-center relative overflow-hidden px-6 pt-32 md:pt-0">
 
       {/* background glow */}
 
