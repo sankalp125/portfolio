@@ -4,22 +4,60 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 
 const projects = [
+
   {
-    title: "Liveness Detection System",
+    title: "AI Liveness Detection System",
     description:
-      "Real-time spoof detection using TensorFlow Lite, MediaPipe and CameraX.",
+      "Real-time spoof detection system using TensorFlow Lite, MediaPipe and CameraX for secure face authentication.",
     image: "/liveness.png",
-    tech: ["Kotlin", "TensorFlow Lite", "CameraX"],
+    tech: ["Kotlin", "TensorFlow Lite", "MediaPipe", "CameraX"],
     github: "#"
   },
+
   {
-    title: "Face Recognition Attendance",
+    title: "Face Recognition Attendance System",
     description:
-      "Android attendance system with face recognition and camera integration.",
+      "AI-powered Android attendance system with face recognition and liveness detection to prevent spoofing using photos or videos.",
     image: "/attendance.png",
-    tech: ["Kotlin", "CameraX", "REST API"],
+    tech: ["Kotlin", "ML Kit", "TensorFlow Lite"],
     github: "#"
+  },
+
+  {
+    title: "Product Management Android App",
+    description:
+      "Modern Android application built with Jetpack Compose and MVVM architecture that allows users to manage products with multiple images. Supports product creation, editing, deletion, image uploads, pull-to-refresh lists, and shimmer loading states.",
+    image: "/product-android.png",
+    tech: [
+      "Kotlin",
+      "Jetpack Compose",
+      "MVVM",
+      "Hilt",
+      "Retrofit",
+      "Coil",
+      "UCrop",
+      "StateFlow",
+      "Material3"
+    ],
+    github: "https://github.com/sankalp125/MarketPlaceApp"
+  },
+
+  {
+    title: "Product Management Backend API",
+    description:
+      "Backend service built using Ktor and PostgreSQL providing secure REST APIs for product management, authentication, and image handling with JWT authentication.",
+    image: "/product-backend.png",
+    tech: [
+      "Kotlin",
+      "Ktor",
+      "PostgreSQL",
+      "JWT",
+      "Coroutines",
+      "REST API"
+    ],
+    github: "https://github.com/sankalp125/MarketPlace_Backend"
   }
+
 ]
 
 export default function Projects() {
@@ -42,7 +80,7 @@ export default function Projects() {
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
+              transition={{ delay: index * 0.15 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.03 }}
               className="rounded-xl bg-gray-900 border border-gray-800 hover:border-purple-500 transition overflow-hidden"
@@ -61,9 +99,11 @@ export default function Projects() {
 
               </div>
 
+              {/* Content */}
+
               <div className="p-6">
 
-                <h3 className="text-xl font-semibold mb-2">
+                <h3 className="text-xl font-semibold mb-3">
                   {project.title}
                 </h3>
 
@@ -73,7 +113,7 @@ export default function Projects() {
 
                 {/* Tech badges */}
 
-                <div className="flex gap-2 flex-wrap mb-4">
+                <div className="flex flex-wrap gap-2 mb-5">
 
                   {project.tech.map((tech, i) => (
                     <span
@@ -86,13 +126,14 @@ export default function Projects() {
 
                 </div>
 
-                {/* Links */}
+                {/* GitHub Button */}
 
                 <a
                   href={project.github}
-                  className="text-purple-400 text-sm hover:underline"
+                  target="_blank"
+                  className="inline-block px-4 py-2 text-sm bg-purple-600 rounded-lg hover:bg-purple-500 transition"
                 >
-                  GitHub →
+                  View on GitHub
                 </a>
 
               </div>
